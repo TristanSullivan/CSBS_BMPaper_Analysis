@@ -1,6 +1,6 @@
 Scripts to make the figures for the HEP CPU benchmarking paper submitted to CSBS in August 2021
 
-The contents of this repository pertains to Figures 1, 3, 7, 8, 9, and 10. There is a separate script to produce each figure. For Figures 3 and 9, there is a python script and a C++ ROOT macro, because I couldn't the stat boxes work in python. For each figure except Figure 7, there is a script to read the data in from a .pkl file and print it. I write this to a text file, which is read by the scripts that make the plots. For Figure 3, there are two scripts to read the data; the output must be combined into a single file.
+The contents of this repository pertain to Figures 1, 3, 7, 8, 9, and 10. There is a separate script to produce each figure. For Figures 3 and 9, there is a python script and a C++ ROOT macro, because I couldn't the stat boxes work in python. For each figure except Figure 7, there is a script to read the data in from a .pkl file and print it. I write this to a text file, which is read by the scripts that make the plots. For Figure 3, there are two scripts to read the data; the output must be combined into a single file.
 
 The format of the data is 
 <benchmark name> one of hs06, hepscore, atlas-gen, cms-gen-sim, cms-digi, cms-reco, belle2-gen-sim-reco, lhcb-gen-sim
