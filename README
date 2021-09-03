@@ -16,6 +16,18 @@ etc.
 
 There is a block for each benchmark, containing sub-blocks for each CPU, containing the score obtained for that CPU and that benchmark
 
-For Figure 1, the script writes out only the mean and standard deviation of the score for each CPU. The scripts write out the score for each run, so the output contains the full distributions.
+For Figure 1, the script writes out only the mean and standard deviation of the score for each CPU. The other scripts write out the score for each run, so the output contains the full distributions.
 
+The scripts to generate the plots use PYROOT. Reading in the data files works the same way for each one, except MakeprmonPlot.py, for which the data are in .csv files. For each of the others, lists are created of the CPU models and benchmarks in the output files from the first step. These are used to parse the data files, and fill a dictionary called bmresults containing the benchmark score for each benchmark and cpu. An example is bmresults["Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz"]["hepscore"]["32.0"], where the last index is the number of cores used on the machine. bmresults["Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz"]["hepscore"]["32.0"] is a list of the HEPscore values for some number of runs on the Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz CPU. The length of the list is the number of runs.
 
+bmresults is then used to fill histograms or graphs, which are plotted with various options. For Figures 3 and 9, the python scripts write out histograms to ROOT files, and the plots are made with C++ macros.
+
+This repository contains all the .pkl files, text output files, and the final figures for the version of the paper originally submitted. For example, to produce Figure 1, I did
+
+./GetSPECvsHS06data.py > SPECvsHS06data_reproduceoldversion_sigma
+
+on a VM with python3. Then, on my laptop with python2 set up with ROOT,
+
+./MakeSPECvsHS06_reproduceoldversion.py,
+
+which reads the data from SPECvsHS06data_reproduceoldversion_sigma.
