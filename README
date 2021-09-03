@@ -1,6 +1,6 @@
 Scripts to make the figures for the HEP CPU benchmarking paper submitted to CSBS in August 2021
 
-The contents of this repository pertain to Figures 1, 3, 7, 8, 9, and 10. There is a separate script to produce each figure. For Figures 3 and 9, there is a python script and a C++ ROOT macro, because I couldn't the stat boxes work in python. For each figure except Figure 7, there is a script to read the data in from a .pkl file and print it. I write this to a text file, which is read by the scripts that make the plots. For Figure 3, there are two scripts to read the data; the output must be combined into a single file.
+The contents of this repository pertain to Figures 1, 3, 7, 8, 9, and 10. There is a separate script to produce each figure. For Figures 3 and 9, there is a python script and a C++ ROOT macro, because I couldn't make the stat boxes work in python. For each figure except Figure 7, there is a script to read the data in from a .pkl file and print it. I write this output to a text file, which is read by the scripts that make the plots. For Figure 3, there are two scripts to read the data: one for the B2 workload, and one for the other six HEP workloads. The output must be combined into a single file.
 
 The format of the data is 
 <benchmark name> one of hs06, hepscore, atlas-gen, cms-gen-sim, cms-digi, cms-reco, belle2-gen-sim-reco, lhcb-gen-sim
@@ -26,8 +26,8 @@ This repository contains all the .pkl files, text output files, and the final fi
 
 ./GetSPECvsHS06data.py > SPECvsHS06data_reproduceoldversion_sigma
 
-on a VM with python3. Then, on my laptop with python2 set up with ROOT,
+on a VM with python3. Then, I copied SPECvsHS06data_reproduceoldversion_sigma to my laptop with python2 set up with ROOT, and did
 
-./MakeSPECvsHS06_reproduceoldversion.py,
+./MakeSPECvsHS06_reproduceoldversion.py
 
-which reads the data from SPECvsHS06data_reproduceoldversion_sigma.
+For Figures 1, 7, and 8, I modified them by hand to make the final version. There are comments in the scripts describing what was done.
